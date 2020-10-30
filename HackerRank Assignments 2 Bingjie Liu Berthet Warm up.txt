@@ -1,0 +1,319 @@
+Warm up(10)
+
+Solve Me First
+def solveMeFirst(a,b):
+    return a+b
+
+num1 = int(input())
+num2 = int(input())
+res = solveMeFirst(num1,num2)
+print(res)
+
+
+
+Simple Array Sum
+import os
+import sys
+
+def simpleArraySum(ar):
+    s=0
+    for i in ar:
+        s+=i
+    return s
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    ar_count = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = simpleArraySum(ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+
+
+
+A Very Big Sum
+
+import math
+import os
+import random
+import re
+import sys
+
+def aVeryBigSum(ar):
+    toplam = 0
+    for i in ar:
+        toplam += i
+    return toplam
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    ar_count = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = aVeryBigSum(ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+
+
+
+
+
+
+
+Compare the Triplets
+
+import math
+import os
+import random
+import re
+import sys
+
+def compareTriplets(a, b):
+    alice=0
+    bob=0
+    X=[]
+    for i in range(3):
+        if a[i]>b[i]:
+            alice+=1
+        elif b[i]>a[i]:
+            bob+=1
+    x=[alice,bob]
+    return(x)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    a = list(map(int, input().rstrip().split()))
+
+    b = list(map(int, input().rstrip().split()))
+
+    result = compareTriplets(a, b)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
+
+
+
+
+
+
+
+
+
+
+Diagonal Difference
+import math
+import os
+import random
+import re
+import sys
+
+
+def diagonalDifference(arr):
+
+    left_arr = []
+    right_arr = []
+    counter1 = 0
+    counter2 = len(arr) - 1
+    for i in range(len(arr)):
+        left_arr.append(arr[counter1][counter1])
+        counter1 += 1
+    counter1 = 0
+    for i in range(len(arr)):
+        right_arr.append(arr[counter1][counter2])
+        counter2 -= 1
+        counter1 += 1
+    return abs(sum(left_arr) - sum(right_arr))
+    
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    result = diagonalDifference(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+
+
+
+Plus Minus
+import math
+import os
+import random
+import re
+import sys
+
+def plusMinus(arr):
+    positive = 0
+    negative = 0
+    zero = 0
+
+    for i in arr:
+        if i > 0:
+            positive += 1
+        elif i < 0:
+            negative += 1
+        else:
+            zero += 1
+
+    print(float(positive/len(arr)))
+    print(float(negative/len(arr)))
+    print(float(zero/len(arr)))
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
+
+
+Staircase
+import math
+import os
+import random
+import re
+import sys
+
+def staircase(n):
+    for i in range(1, n+1):
+        print(" " * (n-i) + i*"#")
+
+if __name__ == '__main__':
+    n = int(input())
+
+    staircase(n)
+
+
+
+
+
+Mini-Max Sum
+
+import math
+import os
+import random
+import re
+import sys
+
+def miniMaxSum(arr):
+
+    print(sum(sorted(arr)[:4]),sum(sorted(arr)[1:]))
+
+if __name__ == '__main__':
+    arr = list(map(int, input().rstrip().split()))
+
+    miniMaxSum(arr)
+
+
+Time Conversion
+
+import os
+import sys
+
+def timeConversion(s):
+    time = s[:-2].split(':')
+    note = s[-2:]
+
+    if (note == 'PM') and (time[0]!='12'):
+        time[0]=str(int(time[0])+12)
+
+    elif (note == 'AM') and (time[0]=='12'):
+        time[0]='00'
+
+    _24hourtime = ':'.join(time)
+    return _24hourtime
+   
+
+if __name__ == '__main__':
+    f = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    f.write(result + '\n')
+
+    f.close()
+Birthday Cake Candles
+import math
+import os
+import random
+import re
+import sys
+
+def birthdayCakeCandles(candles):
+    candles.sort(reverse = True)
+    tallest = candles[0]
+    blowable = 0
+
+    for i in range(len(candles)):
+        if candles[i] == tallest:
+            blowable += 1
+    return blowable
+   
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    candles_count = int(input().strip())
+
+    candles = list(map(int, input().rstrip().split()))
+
+    result = birthdayCakeCandles(candles)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+

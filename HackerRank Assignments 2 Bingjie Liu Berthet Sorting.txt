@@ -1,0 +1,249 @@
+
+Sorting(10)
+
+Intro to Tutorial Challenges
+import math
+import os
+import random
+import re
+import sys
+
+def introTutorial(V, arr):
+    return arr.index(V)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    V = int(input())
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = introTutorial(V, arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+
+
+
+
+
+Insertion Sort - Part 2
+
+
+import math
+import os
+import random
+import re
+import sys
+
+def insertionSort2(n, arr):
+    for i in range(n):
+        if(i == 0):
+            continue
+
+        for k in range(0, i):
+            if(arr[k] > arr[i]):
+                temp = arr[i]
+                arr[i] = arr[k]
+                arr[k] = temp
+            else:
+                continue
+        print(*arr)
+
+
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort2(n, arr)
+
+
+
+Find the Median
+n = int(input())
+arr = list(map(int, input().rstrip().split()))
+arr.sort()
+k = len(arr) // 2
+print(arr[k])
+
+
+
+
+
+
+Quicksort 1 - Partition
+n=int(input())
+s=str(input()).split()
+l=list()
+
+for i in range(n):
+    l.append(int(s[i]))
+k=list()
+j=list()
+
+for i in range(1,n):
+    if l[i]>l[0]:
+        k.append(l[i])
+    elif l[i]<l[0]:
+        j.append(l[i])
+h=list()
+j.sort(reverse=True)
+for i in j:
+    h.append(str(i))
+h.append(str(l[0]))
+k.sort()
+for i in k:
+    h.append(str(i))
+b=" ".join(h) 
+print(b)   
+
+
+
+Closest Numbers
+n=int(input())
+l=list(map(int,input().split()))
+l.sort()
+d=1000
+for i in range(len(l)-1):
+    if abs(l[i]-l[i+1])<d:
+        d=abs(l[i]-l[i+1])
+m=[]
+for i in range(len(l)-1):
+    if abs(l[i]-l[i+1])==d:
+        m.append(l[i])
+        m.append(l[i+1])
+for i in range(len(m)):
+    print(m[i],end=" ")
+
+
+
+
+
+
+
+The Full Counting Sort
+n=int(input())
+l=[]
+
+for i in range(n):
+    a,b = input().split()
+    a = int(a)
+    l.append([a,i,b])
+
+r=sorted(l,key=lambda x: x[0])
+
+rs=[str(c) if b>n/2-1 else '-' for a,b,c in r]
+
+print(' '.join(rs))
+
+
+Insertion Sort - Part 1
+n = int(input())
+l = list(map(int,input().split()))
+
+e = l[-1]
+l[-1] = l[-2]
+i = n - 2
+
+while True:
+    print(*l, sep = ' ')
+    if l[i-1] > e and i > 0:
+        l[i] = l[i-1]
+        i -= 1
+    else:
+        l[i] = e
+        print(*l, sep = ' ')
+        break
+
+
+
+
+
+
+
+
+
+
+
+Big Sorting
+import math
+import os
+import random
+import re
+import sys
+
+def bigSorting(unsorted):
+    return sorted(unsorted, key=lambda x: (len(x), x))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    unsorted = []
+
+    for _ in range(n):
+        unsorted_item = input()
+        unsorted.append(unsorted_item)
+
+    result = bigSorting(unsorted)
+
+    fptr.write('\n'.join(result))
+    fptr.write('\n')
+
+    fptr.close()
+
+
+Running Time of Algorithms
+import math
+import os
+import random
+import re
+import sys
+
+def runningTime(arr):
+    count = 0
+    for j in range(len(arr)):
+        for i in range(j, len(arr)):
+            if arr[i] < arr[j]:
+                count += 1
+    return count
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = runningTime(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+Correctness and the Loop Invariant
+def insertion_sort(l):
+    for i in range(1, len(l)):
+        j = i-1
+        key = l[i]
+        while (l[j] > key) and (j >= 0):
+           l[j+1] = l[j]
+           j -= 1
+        l[j+1] = key
+
+m = input()
+ar = [int(i) for i in input().strip().split()]
+insertion_sort(ar)
+print (" ".join(map(str,ar)))
+
+
